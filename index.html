@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MoonSen - Your Gateway to Gulf Commerce. Business development and trade promotion services connecting markets across borders.">
-    <title>MoonSen | Gateway to Gulf Commerce</title>
+    <meta name="description" content="MoonSen - Global B2B Business Development & Partnership Services. We help businesses expand their reach, build strategic partnerships, and unlock growth opportunities worldwide.">
+    <title>MoonSen | B2B Business Development & Partnership Services</title>
     <style>
+        :root {
+            /* Modern, professional color palette */
+            --primary-color: #0066FF;
+            --primary-dark: #0052CC;
+            --primary-light: #3385FF;
+            --secondary-color: #00C48C;
+            --accent-color: #FF6B35;
+            --dark-bg: #1A1D29;
+            --darker-bg: #0F1115;
+            --text-dark: #1A1D29;
+            --text-gray: #4A5568;
+            --text-light: #718096;
+            --bg-light: #F7FAFC;
+            --bg-white: #FFFFFF;
+            --border-color: #E2E8F0;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,26 +33,32 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
             overflow-x: hidden;
+            background: var(--bg-white);
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
-            color: white;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-md);
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -41,123 +67,210 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: -0.5px;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
         }
 
         .moon-icon {
             font-size: 2rem;
+            filter: grayscale(0);
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
+            align-items: center;
         }
 
-        nav a {
-            color: white;
+        .nav-links a {
+            color: var(--text-gray);
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
-        nav a:hover {
-            color: #d4af37;
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-cta {
+            background: var(--primary-color);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            padding: 0.5rem;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1a2332 0%, #2d3e50 50%, #1a2332 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 150px 2rem 100px;
+            padding: 180px 2rem 120px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
         .hero::before {
-            content: '🌙';
+            content: '';
             position: absolute;
-            font-size: 25rem;
-            opacity: 0.03;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1" fill="white" opacity="0.1"/></svg>');
+            opacity: 0.3;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
-        .hero .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #d4af37;
-            font-weight: 300;
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
         }
 
         .hero .subtitle {
-            font-size: 1.1rem;
+            font-size: 1.35rem;
             margin-bottom: 2.5rem;
-            color: #c8d6e5;
-            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         .cta-button {
             display: inline-block;
-            background: #d4af37;
-            color: #1a2332;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 10px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: 2px solid transparent;
         }
 
-        .cta-button:hover {
-            background: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        .cta-primary {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--dark-bg);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .stats-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
         }
 
         /* Section Styling */
         section {
-            padding: 80px 2rem;
-            max-width: 1200px;
+            padding: 100px 2rem;
+            max-width: 1280px;
             margin: 0 auto;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             margin-bottom: 1rem;
-            color: #1a2332;
+            color: var(--text-dark);
             text-align: center;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 3rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -165,46 +278,69 @@
 
         /* About Section */
         .about {
-            background: #f8f9fa;
+            background: var(--bg-light);
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .about-text h3 {
-            font-size: 1.8rem;
-            color: #1a2332;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
         .about-text p {
             font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
             line-height: 1.8;
         }
 
-        .about-highlight {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        .about-features {
+            display: grid;
+            gap: 1.5rem;
         }
 
-        .about-highlight h4 {
-            color: #d4af37;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-text p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -212,36 +348,103 @@
         .service-card {
             background: white;
             padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid #d4af37;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
         }
 
         .service-icon {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: block;
         }
 
         .service-card h3 {
             font-size: 1.5rem;
-            color: #1a2332;
+            color: var(--text-dark);
             margin-bottom: 1rem;
+            font-weight: 700;
         }
 
         .service-card p {
-            color: #666;
+            color: var(--text-gray);
             line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .service-card ul {
+            margin-top: 1rem;
+            padding-left: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: var(--bg-light);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .step-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
         }
 
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
             color: white;
             text-align: center;
         }
@@ -250,48 +453,66 @@
             color: white;
         }
 
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .contact-info {
             display: flex;
             justify-content: center;
             gap: 3rem;
             flex-wrap: wrap;
-            margin-top: 3rem;
+            margin: 3rem 0;
         }
 
         .contact-item {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            min-width: 250px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem 2.5rem;
+            border-radius: 16px;
+            min-width: 280px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
         }
 
         .contact-item h3 {
-            color: #d4af37;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .contact-item p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            line-height: 1.6;
         }
 
         .contact-item a {
             color: white;
             text-decoration: none;
             transition: color 0.3s;
+            font-weight: 500;
         }
 
         .contact-item a:hover {
-            color: #d4af37;
+            color: var(--secondary-color);
         }
 
         /* Footer */
         footer {
-            background: #0f1820;
-            color: #999;
+            background: var(--darker-bg);
+            color: #6B7280;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         footer p {
@@ -300,33 +521,71 @@
 
         .footer-note {
             font-size: 0.9rem;
-            color: #666;
+            color: #4B5563;
+            margin-top: 1rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                align-items: flex-start;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero .tagline {
-                font-size: 1.2rem;
-            }
-
-            nav ul {
-                display: none;
+            .hero .subtitle {
+                font-size: 1.1rem;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
             }
 
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
             h2 {
                 font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
             }
         }
 
@@ -334,50 +593,113 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="header">
         <nav>
-            <div class="logo">
+            <a href="#" class="logo">
                 <span class="moon-icon">🌙</span>
                 <span>MOONSEN</span>
-            </div>
-            <ul>
+            </a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
             </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                ☰
+            </button>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>MOONSEN</h1>
-            <p class="tagline">千の繋がり • A Thousand Connections</p>
-            <p class="subtitle">Your Gateway to Gulf Commerce. We connect exceptional businesses with endless opportunities across international markets.</p>
-            <a href="#contact" class="cta-button">Let's Connect</a>
+        <div class="hero-content fade-in-up">
+            <div class="hero-badge">🌍 Global B2B Solutions</div>
+            <h1>Expand Your Business<br>Across New Markets</h1>
+            <p class="subtitle">We connect forward-thinking companies with strategic partners and growth opportunities worldwide. Commission-based success means we win when you win.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button cta-primary">Start Growing Today</a>
+                <a href="#services" class="cta-button cta-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Success-Based Model</p>
+            </div>
+            <div class="stat-item">
+                <h3>Global</h3>
+                <p>Market Reach</p>
+            </div>
+            <div class="stat-item">
+                <h3>B2B</h3>
+                <p>Expertise</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Partnership Support</p>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
-        <h2>About MoonSen</h2>
-        <p class="section-subtitle">Where Eastern Wisdom Meets Western Business Excellence</p>
-        
+        <h2>Why MoonSen?</h2>
+        <p class="section-subtitle">Your strategic partner for B2B growth and market expansion</p>
+
         <div class="about-content">
             <div class="about-text">
-                <h3>Building Bridges Across Markets</h3>
-                <p>MoonSen specializes in commission-based business development and trade promotion services, connecting innovative companies with thriving markets across the Gulf region.</p>
-                <p>Just as the moon connects to a thousand reflections on water, we forge countless meaningful partnerships that illuminate new paths to success.</p>
+                <h3>Building Partnerships That Drive Results</h3>
+                <p>MoonSen specializes in commission-based business development, connecting innovative B2B companies with the partners, clients, and opportunities they need to scale globally.</p>
+                <p>Our unique approach combines deep market intelligence, strategic networking, and performance-driven execution to deliver measurable growth for your business.</p>
             </div>
-            
-            <div class="about-highlight">
-                <h4>Our Approach</h4>
-                <p><strong>千 (Sen)</strong> - meaning "thousand" in Japanese - represents the multitude of connections we create and the abundance we bring to every partnership.</p>
-                <p style="margin-top: 1rem;">We combine deep market knowledge with cultural intelligence to deliver results that exceed expectations.</p>
+
+            <div class="about-features">
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-text">
+                        <h4>Performance-Based</h4>
+                        <p>Our commission model ensures complete alignment with your success</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌐</div>
+                    <div class="feature-text">
+                        <h4>Global Network</h4>
+                        <p>Access markets and partnerships across multiple continents</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💼</div>
+                    <div class="feature-text">
+                        <h4>B2B Specialists</h4>
+                        <p>Deep expertise in complex enterprise sales and partnerships</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -385,56 +707,167 @@
     <!-- Services Section -->
     <section id="services">
         <h2>Our Services</h2>
-        <p class="section-subtitle">Tailored solutions for businesses ready to expand their reach</p>
-        
+        <p class="section-subtitle">Comprehensive B2B solutions tailored to your growth objectives</p>
+
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">🤝</div>
-                <h3>Business Development</h3>
-                <p>Strategic partnerships and market entry solutions that open doors to new opportunities across the Gulf region.</p>
+                <h3>Strategic Partnerships</h3>
+                <p>We identify and facilitate partnerships that create mutual value and accelerate growth.</p>
+                <ul>
+                    <li>Partner identification & vetting</li>
+                    <li>Negotiation support</li>
+                    <li>Relationship management</li>
+                </ul>
             </div>
-            
+
             <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3>Trade Promotion</h3>
-                <p>Commission-based sales and marketing services that deliver measurable results for HVAC, manpower, and specialized industries.</p>
+                <div class="service-icon">📈</div>
+                <h3>Business Development</h3>
+                <p>Commission-based sales and market entry services that deliver measurable results.</p>
+                <ul>
+                    <li>Market analysis & strategy</li>
+                    <li>Lead generation & qualification</li>
+                    <li>Sales execution & closing</li>
+                </ul>
             </div>
-            
+
             <div class="service-card">
                 <div class="service-icon">🌍</div>
-                <h3>Market Connections</h3>
-                <p>Leveraging our extensive network to connect your business with the right partners, clients, and opportunities.</p>
+                <h3>Market Expansion</h3>
+                <p>Navigate new markets with confidence through our local expertise and connections.</p>
+                <ul>
+                    <li>Market research & insights</li>
+                    <li>Local partner networks</li>
+                    <li>Cultural & regulatory guidance</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>B2B Marketing</h3>
+                <p>Position your brand effectively and reach decision-makers in target markets.</p>
+                <ul>
+                    <li>Value proposition development</li>
+                    <li>Targeted outreach campaigns</li>
+                    <li>Trade show & event presence</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Client Acquisition</h3>
+                <p>Systematic approach to identifying, engaging, and converting high-value clients.</p>
+                <ul>
+                    <li>Account-based targeting</li>
+                    <li>Multi-channel outreach</li>
+                    <li>Proposal & pitch support</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Growth Consulting</h3>
+                <p>Strategic guidance to optimize your business development and expansion efforts.</p>
+                <ul>
+                    <li>Growth strategy development</li>
+                    <li>Sales process optimization</li>
+                    <li>Performance analytics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <h2>How It Works</h2>
+        <p class="section-subtitle">Our streamlined process to accelerate your business growth</p>
+
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Discovery Call</h3>
+                <p>We learn about your business, goals, and ideal partnerships to create a customized growth strategy.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Strategy Development</h3>
+                <p>Together we define target markets, ideal clients, and key success metrics for the partnership.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Execution</h3>
+                <p>We leverage our network and expertise to generate opportunities, make connections, and drive results.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Growth & Scale</h3>
+                <p>As we deliver results, we continuously optimize and scale efforts to maximize your ROI.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2>Get In Touch</h2>
-        <p class="section-subtitle" style="color: #c8d6e5;">Ready to explore new markets? Let's start a conversation.</p>
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <h3>Email</h3>
-                <p><a href="mailto:rami@moonsen.com">rami@moonsen.com</a></p>
+        <div class="contact-content">
+            <h2>Ready to Grow?</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">Let's discuss how we can help you expand your reach and accelerate growth.</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:rami@moonsen.com">rami@moonsen.com</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Partnership</h3>
+                    <p>Commission-based model<br>aligned with your success</p>
+                </div>
             </div>
-            
-            <div class="contact-item">
-                <h3>Location</h3>
-                <p>Serving the Gulf Region<br>Based in Riyadh, Saudi Arabia</p>
+
+            <div style="margin-top: 3rem;">
+                <a href="mailto:rami@moonsen.com" class="cta-button cta-primary">Schedule a Consultation</a>
             </div>
-        </div>
-        
-        <div style="margin-top: 3rem;">
-            <a href="mailto:rami@moonsen.com" class="cta-button">Start a Conversation</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <p><strong>MoonSen</strong> - A Division of MoonHire LLC</p>
-        <p class="footer-note">Building bridges between markets, creating abundance through partnership.</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">&copy; 2025 MoonSen. All rights reserved.</p>
+        <p class="footer-note">千の繋がり • Building bridges between businesses, creating abundance through partnership.</p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem;">&copy; 2025 MoonSen. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
